@@ -8,10 +8,7 @@
    bootstrap, jquery, Thymeleaf...都是常用的.
 ## 后端 ##
    - spring全家桶(哈哈): spring, spring Boot, spring MVC, spring Data, spring Security, hibernate, ...也都是常用的技术...
-   - 数据库: 
-   - mysql, 
-   - H2, 
-   - MongoDB(第一次用, 完全是学着用着,😅)
+   - 数据库: mysql,  H2, MongoDB(第一次用, 完全是学着用着,😅)
  ## 其他 ##
  - elasticsearch(全文检索)
  - gradle(构建项目, 管理依赖, 类似maven)
