@@ -1,18 +1,26 @@
 package com.spring.blogs.myblogs.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * 用户实体类
  */
+@Entity
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
     private String email;
-    private int age;
+    private Integer age;//允许null值
 
-    public User() {
+    protected User() {
 
     }
-    public User(Long id, String username, String email, int age) {
+    public User(Long id, String username, String email, Integer age) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -43,11 +51,15 @@ public class User {
         this.email = email;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
+    }
+    @Override
+    public String toString() {
+        return String.format("User[id=%d,username='%s',email='%s',age=%d]",id,username,email,age);
     }
 }
