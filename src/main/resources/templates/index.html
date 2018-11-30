@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<header th:replace="~{components/header::header}"></header>
+<body>
+    <div class="container">
+        <!--是否认证过-->
+        <div sec:authorize="isAuthenticated()">
+            <p>登陆用户名: <span sec:authentication="name"></span></p>
+            <p>角色: <span sec:authentication="principal.authorities"></span></p>
+        </div>
+        <div sec:authorize="isAnonymous()">
+            <p>未登陆</p>
+        </div>
+    </div>
+    <div th:replace="~{components/footer::footer}"></div>
+</body>
+</html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
       th:fragment="header">
 <head>
     <meta charset="UTF-8">
@@ -57,6 +58,21 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand" href="/" th:href="@{/user}">首页</a>
+
+            <!--是否登陆-->
+            <div sec:authorize="isAuthenticated()">
+                <ul>
+                    <li>
+                        <span sec:authentication="name"></span>
+                    </li>
+                </ul>
+                <form action="/logout" th:action="@{/logout}" method="post">
+                    <input type="submit" value="退出"/>
+                </form>
+            </div>
+            <div sec:authorize="isAnonymous()">
+                <a href="/login" th:href="@{~/login}" type="submit">登陆</a>
+            </div>
         </div>
     </nav>
 </div>
